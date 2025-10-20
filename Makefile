@@ -3,7 +3,7 @@ CFLAGS = -Og -Wall -I .
 LDLIBS = -lpthread
 
 # Main targets
-PROGS = echoclient echoservers
+PROGS = echoclient echoservers select
 
 all: $(PROGS)
 
@@ -29,7 +29,7 @@ echoservers: echoservers.o echo.o csapp.o
 echoservers.o: echoservers.c csapp.h
 	$(CC) $(CFLAGS) -c echoservers.c
 
-# Optional: build select example
+# Build select (requires select.o, echo.o, and csapp.o)
 select: select.o echo.o csapp.o
 	$(CC) $(CFLAGS) -o select select.o echo.o csapp.o $(LDLIBS)
 
